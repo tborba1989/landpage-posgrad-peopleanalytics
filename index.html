@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pós-Graduação em People Analytics — peopleanalytics.persoa.tec.br</title>
+  <meta name="description" content="A primeira pós-graduação do Brasil 100% dedicada a People Analytics. Certificação MEC, ferramentas reais e 6 projetos práticos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="href=https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────────── */
+    :root {
+      --ink:        #0A0C10;
+      --paper:      #F7F5F0;
+      --deep:       #0D1117;
+      --surface:    #13181F;
+      --surface2:   #1C2330;
+      --gold:       #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dim:   #7A6530;
+      --muted:      #6B7280;
+      --text:       #E8E6E1;
+      --text-dim:   #9CA3AF;
+      --accent:     #3B82F6;
+      --danger:     #EF4444;
+
+      --f-display: 'Playfair Display', Georgia, serif;
+      --f-body:    'Inter', system-ui, sans-serif;
+      --f-mono:    'JetBrains Mono', monospace;
+
+      --radius:  8px;
+      --radius-lg: 16px;
+      --max-w:   1100px;
+      --section-gap: 120px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--deep);
+      color: var(--text);
+      font-family: var(--f-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── UTILITIES ──────────────────────────────────────────────── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .gold { color: var(--gold); }
+    .mono { font-family: var(--f-mono); }
+    .tag {
+      display: inline-block;
+      font-family: var(--f-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+      padding: 18px 24px;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--f-mono);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ─── HERO ───────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 24px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(59,130,246,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-eyebrow-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-eyebrow-text {
+      font-family: var(--f-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero h1 {
+      font-family: var(--f-display);
+      font-size: clamp(38px, 4.5vw, 62px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text-dim);
+      line-height: 1.75;
+      margin-bottom: 44px;
+      max-width: 480px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 18px 36px;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.25);
+      cursor: pointer;
+      border: none;
+      width: fit-content;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(201,168,76,0.35);
+    }
+    .hero-price-note {
+      font-size: 13px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-price-note strong { color: var(--text); }
+
+    /* Hero visual panel */
+    .hero-panel {
+      background: var(--surface);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 24px; right: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .panel-label {
+      font-family: var(--f-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 20px;
+    }
+    .panel-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .panel-stat-num {
+      font-family: var(--f-display);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .panel-stat-label {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .panel-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 24px 0;
+    }
+    .panel-list { list-style: none; }
+    .panel-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-dim);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .panel-list li:last-child { border-bottom: none; }
+    .panel-list li::before {
+      content: '✓';
+      color: var(--gold);
+      font-size: 12px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .panel-badge {
+      margin-top: 20px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-size: 12px;
+      color: var(--gold);
+      text-align: center;
+      font-family: var(--f-mono);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── PIONEER STRIP ──────────────────────────────────────────── */
+    .pioneer {
+      background: var(--surface);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .pioneer-inner { max-width: 720px; margin: 0 auto; }
+    .pioneer h2 {
+      font-family: var(--f-display);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    .pioneer h2 strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .pioneer-sub {
+      margin-top: 16px;
+      font-size: 15px;
+      color: var(--text-dim);
+    }
+
+    /* ─── PROBLEM SECTION ────────────────────────────────────────── */
+    .section { padding: var(--section-gap) 24px; }
+    .section-header { margin-bottom: 64px; }
+    .section-header .tag { margin-bottom: 20px; }
+    .section-header h2 {
+      font-family: var(--f-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .section-header p {
+      margin-top: 16px;
+      font-size: 17px;
+      color: var(--text-dim);
+      max-width: 560px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .problem-card {
+      background: var(--surface);
+      padding: 36px 28px;
+    }
+    .problem-card .icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+    .problem-card h3 {
+      font-family: var(--f-display);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .problem-card p { font-size: 14px; color: var(--text-dim); line-height: 1.65; }
+    .problem-card .strike {
+      text-decoration: line-through;
+      color: var(--danger);
+      opacity: 0.7;
+    }
+
+    /* ─── SOLUTION / DISCIPLINES ─────────────────────────────────── */
+    .disciplines-bg { background: var(--surface); }
+    .disciplines-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.05);
+    }
+    .disc-card {
+      background: var(--deep);
+      padding: 32px 24px;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .disc-card:hover { background: var(--surface2); }
+    .disc-num {
+      font-family: var(--f-mono);
+      font-size: 11px;
+      color: var(--gold-dim);
+      margin-bottom: 12px;
+      letter-spacing: 0.1em;
+    }
+    .disc-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .disc-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    .disc-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-family: var(--f-mono);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+    }
+    .disc-tag.cogna { background: rgba(59,130,246,0.12); color: #60A5FA; }
+    .disc-tag.thyago { background: rgba(201,168,76,0.12); color: var(--gold); }
+
+    /* ─── PROJECTS ───────────────────────────────────────────────── */
+    .projects-list { display: flex; flex-direction: column; gap: 1px; }
+    .project-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 32px;
+      background: var(--surface);
+      padding: 28px 32px;
+      border-radius: 0;
+      transition: background 0.2s;
+    }
+    .project-row:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .project-row:last-child { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+    .project-row:hover { background: var(--surface2); }
+    .project-num {
+      font-family: var(--f-display);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.4;
+      line-height: 1;
+    }
+    .project-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .project-content p { font-size: 13px; color: var(--text-dim); }
+    .project-tool {
+      font-family: var(--f-mono);
+      font-size: 11px;
+      color: var(--gold);
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 5px 12px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    /* ─── FOR WHOM ───────────────────────────────────────────────── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .audience-block h3 {
+      font-family: var(--f-display);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .audience-list { list-style: none; }
+    .audience-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 15px;
+      color: var(--text-dim);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .audience-list li:last-child { border-bottom: none; }
+    .audience-list .yes::before { content: '✓'; color: var(--gold); }
+    .audience-list .no::before { content: '✗'; color: var(--danger); opacity: 0.7; }
+
+    /* ─── INSTRUCTOR ─────────────────────────────────────────────── */
+    .instructor-bg { background: var(--surface); }
+    .instructor-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .instructor-card {
+      background: var(--deep);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+    }
+    .instructor-card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 24px; right: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .instructor-name {
+      font-family: var(--f-display);
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .instructor-title {
+      font-size: 13px;
+      color: var(--gold);
+      font-family: var(--f-mono);
+      letter-spacing: 0.06em;
+      margin-bottom: 24px;
+    }
+    .instructor-bio {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .credential-list { list-style: none; }
+    .credential-list li {
+      font-size: 13px;
+      color: var(--text-dim);
+      padding: 6px 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .credential-list li:last-child { border-bottom: none; }
+    .credential-list li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .instructor-quote h2 {
+      font-family: var(--f-display);
+      font-size: clamp(24px, 2.8vw, 38px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .instructor-quote h2 strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .instructor-quote p {
+      margin-top: 20px;
+      font-size: 15px;
+      color: var(--text-dim);
+    }
+
+    /* ─── PRICING ────────────────────────────────────────────────── */
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .pricing-card.featured {
+      border-color: var(--gold);
+      background: var(--surface2);
+    }
+    .pricing-card.featured::before {
+      content: 'MELHOR OPÇÃO';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--ink);
+      font-family: var(--f-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 4px 14px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .pricing-label {
+      font-family: var(--f-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .pricing-value {
+      font-family: var(--f-display);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .pricing-value sup {
+      font-size: 20px;
+      vertical-align: super;
+    }
+    .pricing-period {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+    }
+    .pricing-features { list-style: none; text-align: left; margin-bottom: 28px; }
+    .pricing-features li {
+      font-size: 13px;
+      color: var(--text-dim);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .pricing-features li::before { content: '✓'; color: var(--gold); flex-shrink: 0; }
+    .pricing-features li:last-child { border-bottom: none; }
+    .btn-outline {
+      display: block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-align: center;
+      padding: 14px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--ink); }
+    .btn-filled {
+      display: block;
+      background: var(--gold);
+      color: var(--ink);
+      text-align: center;
+      padding: 14px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-filled:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .pricing-guarantee {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .pricing-guarantee strong { color: var(--text); }
+
+    /* ─── FAQ ────────────────────────────────────────────────────── */
+    .faq-bg { background: var(--surface); }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 0;
+    }
+    .faq-question {
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-arrow {
+      color: var(--gold);
+      font-size: 18px;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      margin-top: 2px;
+    }
+    details[open] .faq-arrow { transform: rotate(45deg); }
+    .faq-answer {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.75;
+      padding-top: 16px;
+    }
+
+    /* ─── FOOTER CTA ─────────────────────────────────────────────── */
+    .footer-cta {
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .footer-cta h2 {
+      font-family: var(--f-display);
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .footer-cta p {
+      font-size: 17px;
+      color: var(--text-dim);
+      max-width: 500px;
+      margin: 0 auto 44px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: var(--f-mono);
+      font-size: 13px;
+      color: var(--gold);
+    }
+    .footer-legal {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      :root { --section-gap: 72px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-panel { display: none; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .disciplines-grid { grid-template-columns: 1fr; }
+      .project-row { grid-template-columns: 40px 1fr; }
+      .project-tool { display: none; }
+      .audience-grid { grid-template-columns: 1fr; gap: 32px; }
+      .instructor-inner { grid-template-columns: 1fr; gap: 40px; }
+      .pricing-wrap { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">peopleanalytics.persoa.tec.br</span>
+      <a href="#pricing" class="nav-cta">Garantir minha vaga</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span class="hero-eyebrow-text">Primeira do Brasil</span>
+        </div>
+        <h1>
+          O RH que decide<br/>
+          com <em>dados</em><br/>
+          lidera o futuro.
+        </h1>
+        <p class="hero-sub">
+          A única pós-graduação lato sensu do Brasil 100% dedicada
+          a People Analytics — com certificação MEC, ferramentas
+          reais de mercado e 6 projetos práticos aplicáveis
+          imediatamente.
+        </p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn-primary">
+            Quero me inscrever
+            <span>→</span>
+          </a>
+          <div class="hero-price-note">
+            A partir de <strong>12× R$ 297</strong> &nbsp;·&nbsp; Certificado reconhecido pelo MEC
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal">
+        <div class="panel-label">// programa — 360 horas</div>
+        <div class="panel-stat">
+          <span class="panel-stat-num">9</span>
+          <span class="panel-stat-label">disciplinas</span>
+        </div>
+        <div class="panel-stat">
+          <span class="panel-stat-num">6</span>
+          <span class="panel-stat-label">projetos práticos</span>
+        </div>
+        <div class="panel-divider"></div>
+        <ul class="panel-list">
+          <li>SQL & Python aplicados a RH</li>
+          <li>Power BI — dashboards executivos</li>
+          <li>Machine Learning para turnover</li>
+          <li>Equidade salarial & Lei 14.611/2023</li>
+          <li>Orçamento de pessoal orientado por dados</li>
+          <li>Projeto Integrador com entregável real</li>
+        </ul>
+        <div class="panel-badge">
+          ✦ &nbsp; Certificação MEC — Anhanguera / Cogna &nbsp; ✦
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIONEER STRIP -->
+  <div class="pioneer">
+    <div class="pioneer-inner">
+      <h2>
+        Não existe outro programa assim<br/>
+        <strong>em nenhuma instituição do Brasil.</strong>
+      </h2>
+      <p class="pioneer-sub">
+        Esta é a primeira pós-graduação lato sensu reconhecida pelo MEC
+        dedicada exclusivamente a People Analytics.
+        Você não está escolhendo entre opções — está ocupando um território.
+      </p>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">O problema</span>
+        <h2>O mercado quer o RH<br/>que <em class="gold">prova</em>, não o que sente.</h2>
+        <p>Quem tentava se formar em People Analytics antes desta pós precisava escolher entre três caminhos ruins.</p>
+      </div>
+      <div class="problem-grid reveal">
+        <div class="problem-card">
+          <div class="icon">📚</div>
+          <h3>Pós de RH tradicional</h3>
+          <p class="strike">Gestão de pessoas, liderança, coach...</p>
+          <p style="margin-top:12px">Nenhuma ferramenta técnica. Nenhum dado. Nenhum projeto prático aplicável.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">💻</div>
+          <h3>Curso de dados genérico</h3>
+          <p class="strike">Python, machine learning, ciência de dados...</p>
+          <p style="margin-top:12px">Sem contexto de gestão de pessoas. Você aprende a técnica mas não sabe o que perguntar.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">🎓</div>
+          <h3>Cursos livres online</h3>
+          <p class="strike">People Analytics em 20 horas...</p>
+          <p style="margin-top:12px">Sem certificação reconhecida. Sem profundidade. Sem credencial que abra portas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCIPLINES -->
+  <section class="section disciplines-bg">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Grade curricular</span>
+        <h2>9 disciplinas.<br/>Uma progressão<br/><em class="gold">sem atalhos.</em></h2>
+        <p>Do comportamento organizacional ao machine learning. Do zero ao projeto integrador. Cada disciplina sustenta a próxima.</p>
+      </div>
+    </div>
+    <div class="disciplines-grid reveal">
+      <div class="disc-card">
+        <div class="disc-num">D01 · 40h</div>
+        <h3>Gestão Estratégica de Pessoas e Comportamento Organizacional</h3>
+        <p>Base conceitual para contextualizar qualquer análise de dados em RH.</p>
+        <span class="disc-tag cogna">Anhanguera</span>
+      </div>
+      <div class="disc-card">
+        <div class="disc-num">D02 · 40h</div>
+        <h3>Estatística Aplicada à Gestão de Pessoas</h3>
+        <p>Fundamento quantitativo essencial: do descritivo à inferência e regressão.</p>
+        <span class="disc-tag cogna">Anhanguera</span>
+      </div>
+      <div class="disc-card">
+        <div class="disc-num">D03 · 40h</div>
+        <h3>Ética, Privacidade de Dados e LGPD no Contexto de RH</h3>
+        <p>LGPD, dados sensíveis de colaboradores e conformidade regulatória.</p>
+        <span class="disc-tag cogna">Anhanguera</span>
+      </div>
+      <div class="disc-card">
+        <div class="disc-num">D04 · 40h</div>
+        <h3>Fundamentos de People Analytics e Arquitetura de Dados de RH</h3>
+        <p>Banco de dados relacional, modelagem ER e PostgreSQL aplicados a RH.</p>
+        <span class="disc-tag thyago">Especialista</span>
+      </div>
+      <div class="disc-card">
+        <div class="disc-num">D05 · 40h</div>
+        <h3>SQL e Python para Análise de Dados em RH</h3>
+        <p>Pipeline completo: extração, limpeza, análise exploratória e KPIs de RH.</p>
+        <span class="disc-tag thyago">Especialista</span>
+      </div>
+      <div class="disc-card">
+        <div class="disc-num">D06 · 40h</div>
+        <h3>Visualização de Dados e Dashboards Estratégicos de RH</h3>
+        <p>Power BI do zero ao dashboard executivo com DAX e storytelling com dados.</p>
+        <span class="disc-tag thyago">Especialista</span>
+      </div>
+      <div class="disc-card">
+        <div class="disc-num">D07 · 40h</div>
+        <h3>Remuneração Estratégica, Análise Salarial, Equidade e Orçamento de Pessoal</h3>
+        <p>Estruturas salariais, equidade, Lei 14.611/2023 e orçamento de pessoas.</p>
+        <span class="disc-tag thyago">Especialista</span>
+      </div>
+      <div class="disc-card">
+        <div class="disc-num">D08 · 40h</div>
+        <h3>Modelos Preditivos e Machine Learning Aplicados a RH</h3>
+        <p>Predição de turnover, SHAP values, fairness e ética em modelos de RH.</p>
+        <span class="disc-tag thyago">Especialista</span>
+      </div>
+      <div class="disc-card">
+        <div class="disc-num">D09 · 40h</div>
+        <h3>People Analytics Aplicado — Projeto Integrador</h3>
+        <p>Produto analítico completo: banco, pipeline, modelo, dashboard e relatório executivo.</p>
+        <span class="disc-tag thyago">Especialista</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Projetos práticos</span>
+        <h2>Você entrega.<br/>Não apenas<br/><em class="gold">assiste.</em></h2>
+        <p>Cada disciplina especialista termina com um projeto real, documentado e aplicável na sua organização.</p>
+      </div>
+      <div class="projects-list reveal">
+        <div class="project-row">
+          <div class="project-num">01</div>
+          <div class="project-content">
+            <h3>Banco de Dados Corporativo de RH</h3>
+            <p>Modelagem relacional completa em PostgreSQL com dicionário de dados profissional e 100+ registros reais.</p>
+          </div>
+          <span class="project-tool">PostgreSQL</span>
+        </div>
+        <div class="project-row">
+          <div class="project-num">02</div>
+          <div class="project-content">
+            <h3>Pipeline de Dados: Da Fonte ao Insight</h3>
+            <p>Extração via SQL, limpeza com Pandas, análise exploratória e relatório Excel com múltiplas dimensões de RH.</p>
+          </div>
+          <span class="project-tool">Python · SQL</span>
+        </div>
+        <div class="project-row">
+          <div class="project-num">03</div>
+          <div class="project-content">
+            <h3>Dashboard Executivo de People Analytics</h3>
+            <p>Painel completo no Power BI com headcount, turnover, diversidade, remuneração e drill-through interativo.</p>
+          </div>
+          <span class="project-tool">Power BI · DAX</span>
+        </div>
+        <div class="project-row">
+          <div class="project-num">04</div>
+          <div class="project-content">
+            <h3>Estudo de Equidade Salarial</h3>
+            <p>Análise com regressão, decomposição de Oaxaca-Blinder e relatório executivo em conformidade com a Lei 14.611/2023.</p>
+          </div>
+          <span class="project-tool">Python · Estatística</span>
+        </div>
+        <div class="project-row">
+          <div class="project-num">05</div>
+          <div class="project-content">
+            <h3>Modelo Preditivo de Turnover</h3>
+            <p>Random Forest + Gradient Boosting com SHAP values, análise de fairness e recomendações estratégicas.</p>
+          </div>
+          <span class="project-tool">Scikit-learn · SHAP</span>
+        </div>
+        <div class="project-row">
+          <div class="project-num">06</div>
+          <div class="project-content">
+            <h3>Produto Analítico Integrado — Projeto Final</h3>
+            <p>Entrega completa: banco, pipeline, modelo preditivo, dashboard e relatório executivo com plano de ação.</p>
+          </div>
+          <span class="project-tool">Stack Completo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="section disciplines-bg">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Para quem é</span>
+        <h2>Seja honesto<br/>consigo mesmo.</h2>
+      </div>
+      <div class="audience-grid reveal">
+        <div class="audience-block">
+          <h3><span style="color:var(--gold)">✓</span>&nbsp; Este programa é para você se</h3>
+          <ul class="audience-list">
+            <li class="yes">É profissional de RH e quer liderar a transformação analítica da sua área</li>
+            <li class="yes">É analista, BP ou coordenador e precisa de ferramentas reais, não apenas teoria</li>
+            <li class="yes">É gestor e precisa apresentar resultados com evidências, não percepções</li>
+            <li class="yes">Quer ocupar uma posição que ainda não existe na maioria das empresas</li>
+            <li class="yes">Não tem experiência em tecnologia — o curso começa do zero absoluto</li>
+          </ul>
+        </div>
+        <div class="audience-block">
+          <h3><span style="color:var(--danger)">✗</span>&nbsp; Não é para você se</h3>
+          <ul class="audience-list">
+            <li class="no">Busca apenas o diploma sem comprometimento com a prática</li>
+            <li class="no">Não está disposto a instalar ferramentas e executar código</li>
+            <li class="no">Quer resultados sem processo</li>
+            <li class="no">Prefere conteúdo superficial e rápido a formação sólida e aplicável</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="section instructor-bg">
+    <div class="container">
+      <div class="instructor-inner">
+        <div class="instructor-card reveal">
+          <div class="instructor-name">Dr. Thyago Borba</div>
+          <div class="instructor-title">// Especialista em People Analytics & Remuneração Estratégica</div>
+          <p class="instructor-bio">
+            Profissional com atuação em operações de grande porte no segmento hoteleiro de luxo,
+            com experiência em People Analytics, remuneração estratégica e inteligência de dados
+            aplicada à gestão de pessoas no contexto LATAM — Brasil, Argentina e Peru.
+          </p>
+          <ul class="credential-list">
+            <li>MBA em Finanças, Auditoria e Controles</li>
+            <li>MBA em Logística e Tecnologia da Informação</li>
+            <li>Pós-Graduação em Engenharia de Software e Gestão de Projetos</li>
+            <li>Cursando Análise e Desenvolvimento de Sistemas</li>
+            <li>Domínio em Python, SQL, Power BI, PostgreSQL e React</li>
+            <li>Experiência prática em projetos analíticos de RH com stack completo</li>
+          </ul>
+        </div>
+        <div class="instructor-quote reveal">
+          <h2>
+            "O RH que não fala<br/>
+            a língua dos dados<br/>
+            <strong>não está na mesa<br/>
+            de decisão."</strong>
+          </h2>
+          <p>
+            Este programa foi desenhado por quem opera People Analytics
+            no mundo real — não em simulações acadêmicas. Cada ferramenta,
+            cada projeto e cada dataset foi escolhido porque existe
+            em alguma empresa brasileira agora.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center">
+        <span class="tag">Investimento</span>
+        <h2>Uma categoria nova<br/>merece um<br/><em class="gold">posicionamento claro.</em></h2>
+        <p style="margin: 16px auto 0; max-width: 480px;">
+          Não existe comparação direta no mercado. O preço reflete
+          o valor único de uma certificação MEC com formação técnica real.
+        </p>
+      </div>
+      <div class="pricing-wrap reveal">
+        <div class="pricing-card">
+          <div class="pricing-label">PARCELADO</div>
+          <div class="pricing-value"><sup>12×</sup>297</div>
+          <div class="pricing-period">R$ 297,00 por mês · sem juros</div>
+          <ul class="pricing-features">
+            <li>Acesso completo às 9 disciplinas</li>
+            <li>6 projetos práticos com entregáveis reais</li>
+            <li>Certificado reconhecido pelo MEC</li>
+            <li>Plataforma COSMOS — Anhanguera/Cogna</li>
+            <li>Biblioteca virtual completa</li>
+          </ul>
+          <a href="#" class="btn-outline">Parcelar em 12×</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-label">À VISTA</div>
+          <div class="pricing-value"><sup>R$</sup>2.997</div>
+          <div class="pricing-period">pagamento único · economia de R$ 567</div>
+          <ul class="pricing-features">
+            <li>Acesso completo às 9 disciplinas</li>
+            <li>6 projetos práticos com entregáveis reais</li>
+            <li>Certificado reconhecido pelo MEC</li>
+            <li>Plataforma COSMOS — Anhanguera/Cogna</li>
+            <li>Biblioteca virtual completa</li>
+          </ul>
+          <a href="#" class="btn-filled">Garantir minha vaga</a>
+        </div>
+      </div>
+      <div class="pricing-guarantee reveal">
+        <strong>Garantia de 30 dias.</strong>
+        Se por qualquer motivo o programa não atender suas expectativas,
+        devolvemos 100% do valor investido — sem perguntas.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-bg">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center; margin-bottom:48px">
+        <span class="tag">Perguntas frequentes</span>
+        <h2>Tire suas dúvidas.</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary class="faq-question">
+            Preciso ter experiência em programação para começar?
+            <span class="faq-arrow">+</span>
+          </summary>
+          <p class="faq-answer">
+            Não. O programa foi desenhado para partir do zero absoluto.
+            Se você sabe usar Excel, você consegue acompanhar desde a primeira aula.
+            A progressão é gradual e cada ferramenta é introduzida com instalação passo a passo
+            antes de qualquer linha de código.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            O certificado é reconhecido pelo MEC?
+            <span class="faq-arrow">+</span>
+          </summary>
+          <p class="faq-answer">
+            Sim. A certificação é emitida pela Anhanguera, instituição integrante do grupo Cogna Educação —
+            o maior grupo educacional do mundo. O curso segue rigorosamente a Resolução CNE/CES n. 1/2018,
+            que regula a oferta de pós-graduação lato sensu no Brasil.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            Quanto tempo tenho para concluir o curso?
+            <span class="faq-arrow">+</span>
+          </summary>
+          <p class="faq-answer">
+            O curso tem estrutura flexível com entrada intermitente. A carga horária total é de 360 horas,
+            distribuídas em 9 disciplinas de 40 horas cada. O ritmo é definido pelo aluno dentro
+            do prazo de integralização estabelecido pela instituição.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            Os projetos práticos são individuais ou em grupo?
+            <span class="faq-arrow">+</span>
+          </summary>
+          <p class="faq-answer">
+            Todos os 6 projetos práticos são individuais. O objetivo é que cada aluno construa
+            um portfólio próprio, aplicável à realidade da sua organização. Os projetos são cumulativos —
+            o banco de dados da D04 alimenta o pipeline da D05, que alimenta o dashboard da D06, e assim por diante.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            Qual a diferença entre este programa e outros cursos de People Analytics do mercado?
+            <span class="faq-arrow">+</span>
+          </summary>
+          <p class="faq-answer">
+            Esta é a única pós-graduação lato sensu do Brasil 100% dedicada a People Analytics com certificação MEC.
+            Os demais programas disponíveis são cursos livres (sem certificação acadêmica reconhecida),
+            pós-graduações genéricas de RH (sem conteúdo técnico) ou cursos de dados genéricos
+            (sem contexto de gestão de pessoas). Este programa resolve os três problemas simultaneamente.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            Quais ferramentas precisarei instalar?
+            <span class="faq-arrow">+</span>
+          </summary>
+          <p class="faq-answer">
+            PostgreSQL, DBeaver, Anaconda (Python + Jupyter Notebook) e Power BI Desktop —
+            todas gratuitas. O curso inclui guia de instalação passo a passo para Windows, Mac e Linux.
+            Nenhum software pago é exigido durante o programa.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="container">
+      <h2>O RH analítico<br/>começa <em class="gold">agora.</em></h2>
+      <p>A primeira turma define quem chega primeiro a um território que o mercado ainda está descobrindo.</p>
+      <a href="#pricing" class="btn-primary" style="margin: 0 auto;">
+        Garantir minha vaga
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">peopleanalytics.persoa.tec.br</span>
+      <span class="footer-legal">
+        Pós-Graduação Lato Sensu em People Analytics · Anhanguera / Cogna Educação ·
+        Resolução CNE/CES n. 1/2018
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Hero reveal on load
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+    });
+  </script>
+</body>
+</html>
